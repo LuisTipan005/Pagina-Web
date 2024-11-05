@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luis R. Tipán</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // JavaScript para mostrar y ocultar secciones
+        function showSection(sectionId) {
+            // Ocultar todas las secciones
+            const sections = document.querySelectorAll("section");
+            sections.forEach(section => {
+                section.style.display = "none";
+            });
+
+            // Mostrar la sección seleccionada
+            const selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.style.display = "block";
+            }
+
+            // Guardar la sección actual en localStorage
+            localStorage.setItem("currentSection", sectionId);
+        }
+
+        // Mostrar la última sección visitada o "Principal" al cargar la página
+        window.onload = () => {
+            const savedSection = localStorage.getItem("currentSection") || "principal";
+            showSection(savedSection);
+        };
+    </script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showSection('principal')">Principal</a></li>
+            <li><a href="#" onclick="showSection('certificados')">Certificados</a></li>
+            <li><a href="#" onclick="showSection('proyectos')">Proyectos</a></li>
+            <li><a href="#" onclick="showSection('repositorio')">Repositorio</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sección Principal -->
+    <section id="principal">
+        <div class="content">
+            <div class="text">
+                <h1>Luis R. Tipán</h1>
+                <p>Soy estudiante de Ingeniería en Ciencias de la Computación en la Escuela Politécnica Nacional y actualmente estoy en el cuarto semestre de mi carrera. Mi área de interés principal es la ciberseguridad, así como el ensamblaje y desarmado de computadoras, lo cual encuentro fascinante.</p>
+                <p>También tengo una curiosidad inagotable por los autos y disfruto entender cómo funcionan desde adentro.</p>
+                <p>Además de mi pasión por la tecnología, soy un ferviente aficionado al fútbol. Me gustan mucho los deportes en general y mantenerme activo con el ejercicio.</p>
+            </div>
+            <div class="imagen">
+                <img src="logo.png" alt="Logo" width="300" height="200">
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Sección Certificados -->
+    <section id="certificados" style="display: none;">
+        <h2>Mis Certificados</h2>
+        <div class="certificates">
+            <div class="certificate">
+                <h3>Certificado Principiante de Curso Python</h3>
+                <img src="Cer_1.png" alt="Certificado de Curso Python" width="300" height="200">
+            </div>
+            <div class="certificate">
+                <h3>Certificado Intermedio de Curso Python</h3>
+                <img src="Cer_2.png" alt="Certificado de Curso Python" width="300" height="200">
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Proyectos -->
+    <section id="proyectos" style="display: none;">
+        <h2>Proyectos</h2>
+        <p>Aun aprendiendo más de programación para hacer un buen proyecto.</p>
+    </section>
+
+    <!-- Sección Repositorio -->
+    <section id="repositorio" style="display: none;">
+        <h2>Repositorio</h2>
+        <p>Enlace a mis repositorios de código, donde puedes ver algunos de mis trabajos.</p>
+        <address>
+            <a href="http://youtube.com/watch?v=uBY1AoiF5Vo">GitHub</a>
+        </address>
+    </section>
+</body>
+</html>
